@@ -1,0 +1,75 @@
+---
+title: "Lead Hackathon Group 2"
+author: "Zach Richards, Damien DiGiovine, Tong Ning, Jessie Ye, and Bravo Nie"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: 
+    github_document:
+        html_preview: false
+        toc: false
+        toc_depth: 3
+        fig_width: 8
+        fig_height: 6
+        dev: jpeg
+urlcolor: blue
+---
+
+# Housekeeping
+Housekeeping file to set up directories and load packages
+
+```{r housekeeping}
+source('housekeeping.R')
+```
+
+# Part 1
+Code to clean datasets and merge them for use
+
+```{r cleaning}
+source(file.path(build_dir, 'clean_data.R'))
+```
+
+# Get acs
+
+```{r acs data}
+#need to insert your census api key into "acs_get.R" in order to pull census data and run maps
+source(file.path(build_dir, 'acs_get.R'))
+```
+
+# Geocoding pre-1978 housing
+```{r geocoding data}
+source(file.path(build_dir, 'geocode_lead_addresses.R'))
+```
+
+```{r geocoding housing}
+#source(file.path(build_dir, 'geocode_pre_1978_housing.R'))
+```
+
+
+# Fetching map
+
+```{r map fetch}
+source(file.path(build_dir, 'map_fetch.R'))
+```
+
+# Making Map
+
+```{r map making-pre 1950}
+source(file.path(analysis_dir, 'pre_1950housing_map.R'))
+```
+
+```{r map lead abatement}
+source(file.path(analysis_dir, 'lead_abatement_map.R'))
+```
+
+# Regressions
+```{r map regression_poisoning}
+source(file.path(analysis_dir, 'poisoning_regressions.R'))
+```
+
+# Poisoning and its plot
+```{r map lead poisoning over time}
+source(file.path(analysis_dir, 'lead_poisoning_over_time.R'))
+```
+
+```{r map lead poisoning over time}
+source(file.path(analysis_dir, 'mapping_poisoning.R'))
+```
